@@ -2084,6 +2084,18 @@ class Tensor:
     @with_unsupported_dtypes(
         {
             "2.0.1 and below": (
+                "float16",
+                "bfloat16",
+            )
+        },
+        "torch",
+    )
+    def corrcoef(self):
+        return torch_frontend.corrcoef(self)
+
+    @with_unsupported_dtypes(
+        {
+            "2.0.1 and below": (
                 "bfloat16",
                 "uint8",
                 "uint32",
